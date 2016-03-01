@@ -21,6 +21,5 @@ public class MyApplication extends Application {
         Intent intent = new Intent(action);
         sendBroadcast(intent);
         BankDatabase.init(this);
-
     }
 }
