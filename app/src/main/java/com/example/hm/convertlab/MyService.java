@@ -25,7 +25,7 @@ public class MyService extends IntentService {
             return;
         Log.d("Ricsi", "frissites");
 
-        if (MyNetworkMenegger.isNetworkAvailable(this)){
+        if (MyNetworkManager.isNetworkAvailable(this)){
             startRefreshDatabase();
         }
     }

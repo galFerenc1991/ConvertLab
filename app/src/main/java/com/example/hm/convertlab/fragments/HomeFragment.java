@@ -98,7 +98,7 @@ public class HomeFragment extends Fragment implements ItemBank, LoaderManager.Lo
             @Override
             public boolean onQueryTextChange(String newText) {
                 newText = newText.toLowerCase();
-                final List<Banks> filtredBanks = new ArrayList<Banks>();
+                final List<Banks> filteredBanks = new ArrayList<Banks>();
 
                 for (int i = 0; i < mResponse.mBanks.size(); i++){
 
@@ -107,10 +107,10 @@ public class HomeFragment extends Fragment implements ItemBank, LoaderManager.Lo
                     final String textCity = mResponse.mBanks.get(i).mCity.toLowerCase();
 
                     if (textName.contains(newText) || textRegion.contains(newText) || textCity.contains(newText)){
-                        filtredBanks.add( mResponse.mBanks.get(i));
+                        filteredBanks.add(mResponse.mBanks.get(i));
                     }
                 }
-                mHomeAdapter.setBankInfo(filtredBanks);
+                mHomeAdapter.setBankInfo(filteredBanks);
                 mHomeAdapter.notifyDataSetChanged();
 
                 return true;
@@ -147,7 +147,7 @@ public class HomeFragment extends Fragment implements ItemBank, LoaderManager.Lo
                 mHomeAdapter.setListener(HomeFragment.this);
 
                 mHomeResyclerView.setAdapter(mHomeAdapter);
-                mHomeResyclerView.scrollToPosition(data.mBanks.size() - 1);
+                //mHomeResyclerView.scrollToPosition(data.mBanks.size() - 1);
             }
         });
 

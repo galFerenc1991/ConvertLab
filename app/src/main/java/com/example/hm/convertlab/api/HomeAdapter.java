@@ -46,7 +46,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         holder.mBankName.setText(bank.mBankName);
         holder.mRegionName.setText(bank.mRegion);
         holder.mCityName.setText(bank.mCity);
-        holder.mAdress.setText(bank.mAddress);
+        holder.mAddress.setText(bank.mAddress);
         holder.mPhoneNumber.setText(bank.mPhoneNumber);
         holder.ivCall.setOnClickListener(holder);
         holder.ivCall.setTag(position);
@@ -70,7 +70,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         public TextView mRegionName;
         public TextView mCityName;
         public TextView mPhoneNumber;
-        public TextView mAdress;
+        public TextView mAddress;
         public ImageView ivCall;
         public ImageView ivMap;
         public ImageView ivLink;
@@ -83,7 +83,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
             mBankName =   (TextView) v.findViewById(R.id.bankName);
             mRegionName = (TextView) v.findViewById(R.id.regionName);
             mCityName =   (TextView) v.findViewById(R.id.cityName);
-            mAdress =     (TextView) v.findViewById(R.id.adress);
+            mAddress =     (TextView) v.findViewById(R.id.adress);
             mPhoneNumber =(TextView) v.findViewById(R.id.phoneNumber);
             ivCall =      (ImageView) v.findViewById(R.id.btnPhone);
             ivLink =      (ImageView) v.findViewById(R.id.btnLink);

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v4.content.AsyncTaskLoader;
 import android.util.Log;
 
-import com.example.hm.convertlab.MyNetworkMenegger;
+import com.example.hm.convertlab.MyNetworkManager;
 import com.example.hm.convertlab.api.Modell.BankResponse;
 import com.example.hm.convertlab.api.Modell.Banks;
 import com.example.hm.convertlab.api.Modell.Currencies;
@@ -13,8 +13,6 @@ import com.example.hm.convertlab.dao.BankDao;
 
 import java.util.Iterator;
 import java.util.List;
-
-import retrofit.RetrofitError;
 
 /**
  * Created by hm on 09.02.2016.
@@ -56,7 +54,7 @@ public class MyAsyncTaskLoader extends AsyncTaskLoader<BankResponse> {
     }
 
     public void startRefreshDatabase(BankDao _bankDao){
-        if (MyNetworkMenegger.isNetworkAvailable(getContext())) {
+        if (MyNetworkManager.isNetworkAvailable(getContext())) {
             mBankResponse = RestProvider.getInstance().getBankService().getBanks();
             checkChangeCurrencies(mBankResponse.mBanks, list);
             deliverResult(mBankResponse);

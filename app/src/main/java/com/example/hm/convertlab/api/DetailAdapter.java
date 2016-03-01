@@ -63,48 +63,62 @@ public class DetailAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder
             HVH.mCurrenciesNameSablon.setText("Назва валюти");
             HVH.mBidSablon.setText("Покупка/");
             HVH.mAskSablon.setText("Продажа");
-        }else {
-            CurrenciesViewHolder CVH = (CurrenciesViewHolder) holder;
-            CVH.mCourrenciesName.setText(mBank.mCurrencies.get(position-1).mCurrenciesFullName);
-            switch (mBank.mCurrencies.get(position - 1).mChangeAsk){
-                case 2:///////UP////////
-                    CVH.mAsk.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.currencies_up_color));
-                    CVH.mImageAsk.setImageResource(R.drawable.ic_green_arrow_up);
-                    break;
-                case 0:////////DOWN/////
-                    CVH.mAsk.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.currencies_down_color));
-                    CVH.mImageAsk.setImageResource(R.drawable.ic_red_arrow_down);
-                    break;
-                case 1://///DEFAULT//////
-                    CVH.mAsk.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.text_home));
-                    CVH.mImageAsk.setImageResource(android.R.color.transparent);
-                    break;
-            }
-
-            switch (mBank.mCurrencies.get(position - 1).mChangeBid){
-                case 0:///////UP////////
-                    CVH.mBid.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.currencies_up_color));
-                    CVH.mImageBid.setImageResource(R.drawable.ic_green_arrow_up);
-                    break;
-                case 1:////////DOWN/////
-                    CVH.mBid.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.currencies_down_color));
-                    CVH.mImageBid.setImageResource(R.drawable.ic_red_arrow_down);
-                    break;
-                case 2://///DEFAULT//////
-                    CVH.mBid.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.text_home));
-                    CVH.mImageBid.setImageResource(android.R.color.transparent);
-                    break;
-            }
-            CVH.mAsk.setText(mBank.mCurrencies.get(position-1).mAsk);
-            CVH.mBid.setText(mBank.mCurrencies.get(position-1).mBid);
+        } else
+        {
+            setChangeCurrencies(holder, position);
         }
-
     }
 
     @Override
     public int getItemCount() {
         return mBank.mCurrencies.size() + 1;
     }
+
+    public void setChangeCurrencies(RecyclerView.ViewHolder _holder, int _position){
+        CurrenciesViewHolder CVH = (CurrenciesViewHolder) _holder;
+        CVH.mCourrenciesName.setText(mBank.mCurrencies.get(_position-1).mCurrenciesFullName);
+        //////////
+        setChangeAsk(CVH, _position);
+        setChangeBid(CVH, _position);
+
+        CVH.mAsk.setText(mBank.mCurrencies.get(_position-1).mAsk);
+        CVH.mBid.setText(mBank.mCurrencies.get(_position-1).mBid);
+    }
+
+    public void setChangeAsk(CurrenciesViewHolder _CVH,int _position){
+        switch (mBank.mCurrencies.get(_position - 1).mChangeAsk){
+        case 2:///////UP////////
+            _CVH.mAsk.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.currencies_up_color));
+            _CVH.mImageAsk.setImageResource(R.drawable.ic_green_arrow_up);
+            break;
+        case 0:////////DOWN/////
+            _CVH.mAsk.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.currencies_down_color));
+            _CVH.mImageAsk.setImageResource(R.drawable.ic_red_arrow_down);
+            break;
+        case 1://///DEFAULT//////
+            _CVH.mAsk.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.text_home));
+            _CVH.mImageAsk.setImageResource(android.R.color.transparent);
+            break;
+        }
+    }
+
+    public void setChangeBid(CurrenciesViewHolder _CVH,int _position){
+        switch (mBank.mCurrencies.get(_position - 1).mChangeBid){
+        case 0:///////UP////////
+            _CVH.mBid.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.currencies_up_color));
+            _CVH.mImageBid.setImageResource(R.drawable.ic_green_arrow_up);
+            break;
+        case 1:////////DOWN/////
+            _CVH.mBid.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.currencies_down_color));
+            _CVH.mImageBid.setImageResource(R.drawable.ic_red_arrow_down);
+            break;
+        case 2://///DEFAULT//////
+            _CVH.mBid.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.text_home));
+            _CVH.mImageBid.setImageResource(android.R.color.transparent);
+            break;
+        }
+    }
+
 
     public class HeaderViewHolder extends RecyclerView.ViewHolder {
         public TextView mBankNameHeader;
