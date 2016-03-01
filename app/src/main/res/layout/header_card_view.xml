@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardInfoBank"
+        android:layout_margin="16dp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        card_view:cardCornerRadius="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/bank_info_home_fragment"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/bankNameHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_floating_button"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="@dimen/bank_name_size"
+                android:text="Bank name"/>
+
+            <TextView
+                android:id="@+id/bankAdressHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bank Adress"/>
+
+            <TextView
+                android:id="@+id/bankPhoneNumberHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bank telephone"/>
+
+            <TextView
+                android:id="@+id/bankEmailHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bank Email"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardSablonCurrencies"
+        android:layout_gravity="center"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        card_view:cardCornerRadius="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/bank_info_home_fragment"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/courrenciesNameSablon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="courrenciesName"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginLeft="70dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/bidSablon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="vetel"/>
+
+                <TextView
+                    android:id="@+id/askSablon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="eladas"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

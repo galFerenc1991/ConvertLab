@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Options">
+        <attr name="currencies_color" format="color"/>
+        <attr name="currencies_size" format="dimension"/>
+        <attr name="bank_name_size" format="dimension"/>
+        <attr name="all_rows_size" format="dimension"/>
+    </declare-styleable>
+</resources>

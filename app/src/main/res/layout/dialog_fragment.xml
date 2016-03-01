@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+
+    <ScrollView
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/canvas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:transitionGroup="true">
+
+            <com.example.hm.convertlab.fragments.CustomView
+                android:id="@+id/customView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                custom:currencies_color="@color/currencies_color"
+                custom:currencies_size="30dp"
+                custom:bank_name_size="20dp"
+                custom:all_rows_size="17dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnShare"
+        android:text="SHARE"
+        android:textColor="@color/color_floating_button"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="70sp" />
+
+</LinearLayout>
