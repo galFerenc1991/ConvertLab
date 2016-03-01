@@ -12,7 +12,7 @@ import android.util.Log;
  * Created by hm on 22.02.2016.
  */
 public class MyReceiver extends BroadcastReceiver {
-    private static long mRefreshTime = 30000;
+    private static long mRefreshTime = 60000;
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d("Ricsimegmondta", "elindult");

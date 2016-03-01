@@ -25,8 +25,15 @@ public class MyService extends IntentService {
             return;
         Log.d("Ricsi", "frissites");
 
+        if (MyNetworkMenegger.isNetworkAvailable(this)){
+            startRefreshDatabase();
+        }
+    }
+
+    public void startRefreshDatabase(){
         mBankResponse = RestProvider.getInstance().getBankService().getBanks();
         bankDao.deleteDatabase();
         bankDao.addAllBanks(mBankResponse.mBanks);
     }
+
 }

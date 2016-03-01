@@ -67,30 +67,30 @@ public class DetailAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder
             CurrenciesViewHolder CVH = (CurrenciesViewHolder) holder;
             CVH.mCourrenciesName.setText(mBank.mCurrencies.get(position-1).mCurrenciesFullName);
             switch (mBank.mCurrencies.get(position - 1).mChangeAsk){
-                case 1:///////UP////////
+                case 2:///////UP////////
                     CVH.mAsk.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.currencies_up_color));
                     CVH.mImageAsk.setImageResource(R.drawable.ic_green_arrow_up);
                     break;
-                case 2:////////DOWN/////
+                case 0:////////DOWN/////
                     CVH.mAsk.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.currencies_down_color));
                     CVH.mImageAsk.setImageResource(R.drawable.ic_red_arrow_down);
                     break;
-                case 0://///DEFAULT//////
+                case 1://///DEFAULT//////
                     CVH.mAsk.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.text_home));
                     CVH.mImageAsk.setImageResource(android.R.color.transparent);
                     break;
             }
 
             switch (mBank.mCurrencies.get(position - 1).mChangeBid){
-                case 1:///////UP////////
+                case 0:///////UP////////
                     CVH.mBid.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.currencies_up_color));
                     CVH.mImageBid.setImageResource(R.drawable.ic_green_arrow_up);
                     break;
-                case 2:////////DOWN/////
+                case 1:////////DOWN/////
                     CVH.mBid.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.currencies_down_color));
                     CVH.mImageBid.setImageResource(R.drawable.ic_red_arrow_down);
                     break;
-                case 0://///DEFAULT//////
+                case 2://///DEFAULT//////
                     CVH.mBid.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.text_home));
                     CVH.mImageBid.setImageResource(android.R.color.transparent);
                     break;

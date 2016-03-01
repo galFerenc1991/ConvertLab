@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.content.AsyncTaskLoader;
 import android.util.Log;
 
+import com.example.hm.convertlab.MyNetworkMenegger;
 import com.example.hm.convertlab.api.Modell.BankResponse;
 import com.example.hm.convertlab.api.Modell.Banks;
 import com.example.hm.convertlab.api.Modell.Currencies;
@@ -41,27 +42,28 @@ public class MyAsyncTaskLoader extends AsyncTaskLoader<BankResponse> {
     @Override
     public BankResponse loadInBackground() {
         BankDao bankDao = new BankDao();
-
         list = bankDao.getBank();
+        startHomeScreenIfDatabaseNotNull();
+        startRefreshDatabase(bankDao);
+        return mBankResponse;
+    }
 
+    public void startHomeScreenIfDatabaseNotNull(){
         if (list.size() != 0){
             mBankResponse.mBanks=list;
             deliverResult(mBankResponse);
         }
+    }
 
-        try {
+    public void startRefreshDatabase(BankDao _bankDao){
+        if (MyNetworkMenegger.isNetworkAvailable(getContext())) {
             mBankResponse = RestProvider.getInstance().getBankService().getBanks();
             checkChangeCurrencies(mBankResponse.mBanks, list);
             deliverResult(mBankResponse);
-            bankDao.deleteDatabase();
-            bankDao.addAllBanks(mBankResponse.mBanks);
+            _bankDao.deleteDatabase();
+            _bankDao.addAllBanks(mBankResponse.mBanks);
             Log.d("Ricsi", "Loader");
-
-        } catch (RetrofitError e) {
-            e.printStackTrace();
         }
-
-        return mBankResponse;
     }
 
     public void checkChangeCurrencies(List<Banks> _banks, List<Banks> _list){
@@ -71,42 +73,54 @@ public class MyAsyncTaskLoader extends AsyncTaskLoader<BankResponse> {
             for (Iterator<Banks> it = _list.iterator(); it.hasNext();){
                 Banks databaseBank = it.next();
                 String databaseBankId = databaseBank.mBankID;
-                if (bankId.equals(databaseBankId)){
-                    List<Currencies> bankCur = bank.mCurrencies;
-                    List<Currencies> databaseBankCur = databaseBank.mCurrencies;
-                    for (Currencies actualBankCur : bankCur){
-                        String actualBankCurName = actualBankCur.CurrenciesName;
-                        for (Currencies actualDatabaseBankCur : databaseBankCur){
-                            String actualDatabaseBankCurName = actualDatabaseBankCur.CurrenciesName;
-                            if (actualBankCurName.equals(actualDatabaseBankCurName)){
-                                if (Double.parseDouble(actualBankCur.mAsk) > Double.parseDouble(actualDatabaseBankCur.mAsk)) {
-                                    actualBankCur.mChangeAsk = 1;
-                                    Log.d("mChangeAsk", String.valueOf(actualBankCur.mChangeAsk));
-                                } else {
-                                    if (Double.parseDouble(actualBankCur.mAsk) == Double.parseDouble(actualDatabaseBankCur.mAsk)){
-                                        actualBankCur.mChangeAsk = 0;
-                                        Log.d("mChangeAsk", String.valueOf(actualBankCur.mChangeAsk));
-                                    }else actualBankCur.mChangeAsk = 2;
-                                    Log.d("mChangeAsk", String.valueOf(actualBankCur.mChangeAsk));
-                                }
-                                //////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                if (Double.parseDouble(actualBankCur.mBid) > Double.parseDouble(actualDatabaseBankCur.mBid)) {
-                                    actualBankCur.mChangeBid = 1;
-                                    Log.d("mChangeBid", String.valueOf(actualBankCur.mChangeBid));
-                                } else {
-                                    if (Double.parseDouble(actualBankCur.mBid) == Double.parseDouble(actualDatabaseBankCur.mBid)){
-                                        actualBankCur.mChangeBid = 0;
-                                        Log.d("mChangeBid", String.valueOf(actualBankCur.mChangeBid));
-                                    }else actualBankCur.mChangeBid = 2;
-                                    Log.d("mChangeBid", String.valueOf(actualBankCur.mChangeBid));
-                                }
-                            }
-                        }
-                    }
-                it.remove();
-                }
+                ///////////////////////////////////////////////////////////////
+                ifEquals(bankId, databaseBankId, bank, databaseBank, it);
             }
 
+        }
+    }
+
+    public void ifEquals(String _bankId, String _databaseBankId, Banks _bank, Banks _databaseBank, Iterator<Banks> _it){
+        if (_bankId.equals(_databaseBankId)){
+            List<Currencies> bankCur = _bank.mCurrencies;
+            List<Currencies> databaseBankCur = _databaseBank.mCurrencies;
+            for (Currencies actualBankCur : bankCur){
+                String actualBankCurName = actualBankCur.CurrenciesName;
+                for (Currencies actualDatabaseBankCur : databaseBankCur){
+                    String actualDatabaseBankCurName = actualDatabaseBankCur.CurrenciesName;
+                    if (actualBankCurName.equals(actualDatabaseBankCurName)){
+                        checkChangeAsk(actualBankCur, actualDatabaseBankCur);
+                        checkChangeBid(actualBankCur, actualDatabaseBankCur);
+                    }
+                }
+            }
+            _it.remove();
+        }
+    }
+
+    public void checkChangeAsk(Currencies _actualBankCur, Currencies _actulDatabaseBankCur){
+        if (Double.parseDouble(_actualBankCur.mAsk) > Double.parseDouble(_actulDatabaseBankCur.mAsk)) {
+            _actualBankCur.mChangeAsk = 1;
+            Log.d("mChangeAsk", String.valueOf(_actualBankCur.mChangeAsk));
+        } else {
+            if (Double.parseDouble(_actualBankCur.mAsk) == Double.parseDouble(_actulDatabaseBankCur.mAsk)){
+                _actualBankCur.mChangeAsk = 0;
+                Log.d("mChangeAsk", String.valueOf(_actualBankCur.mChangeAsk));
+            }else _actualBankCur.mChangeAsk = 2;
+            Log.d("mChangeAsk", String.valueOf(_actualBankCur.mChangeAsk));
+        }
+    }
+
+    public void checkChangeBid(Currencies _actualBankCur, Currencies _actulDatabaseBankCur){
+        if (Double.parseDouble(_actualBankCur.mBid) > Double.parseDouble(_actulDatabaseBankCur.mBid)) {
+            _actualBankCur.mChangeBid = 1;
+            Log.d("mChangeBid", String.valueOf(_actualBankCur.mChangeBid));
+        } else {
+            if (Double.parseDouble(_actualBankCur.mBid) == Double.parseDouble(_actulDatabaseBankCur.mBid)){
+                _actualBankCur.mChangeBid = 0;
+                Log.d("mChangeBid", String.valueOf(_actualBankCur.mChangeBid));
+            }else _actualBankCur.mChangeBid = 2;
+            Log.d("mChangeBid", String.valueOf(_actualBankCur.mChangeBid));
         }
     }
 }
