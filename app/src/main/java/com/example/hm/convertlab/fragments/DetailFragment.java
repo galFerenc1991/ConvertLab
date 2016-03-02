@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.hm.convertlab.api.DetailAdapter;
+import com.example.hm.convertlab.adapters.DetailAdapter;
 import com.example.hm.convertlab.api.Modell.Banks;
 import com.example.hm.convertlab.MainActivity;
 import com.example.hm.convertlab.R;

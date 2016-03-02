@@ -18,31 +18,24 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
-import com.example.hm.convertlab.MainActivity;
 import com.example.hm.convertlab.api.ItemBank;
 import com.example.hm.convertlab.api.Modell.BankResponse;
-import com.example.hm.convertlab.api.HomeAdapter;
+import com.example.hm.convertlab.adapters.HomeAdapter;
 import com.example.hm.convertlab.api.Modell.Banks;
 import com.example.hm.convertlab.api.MyAsyncTaskLoader;
-import com.example.hm.convertlab.api.RestProvider;
 import com.example.hm.convertlab.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
-
 /**
  * Created by hm on 28.01.2016.
  */
 public class HomeFragment extends Fragment implements ItemBank, LoaderManager.LoaderCallbacks<BankResponse> {
-    Banks mBank;
-    View view;
-    ProgressBar prBAr;
+    private Banks mBank;
+    private View view;
+    private ProgressBar prBAr;
 
     private RecyclerView mHomeResyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -97,8 +90,9 @@ public class HomeFragment extends Fragment implements ItemBank, LoaderManager.Lo
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                Log.d("meghivodik", "meghivodott");
                 newText = newText.toLowerCase();
-                final List<Banks> filteredBanks = new ArrayList<Banks>();
+                final List<Banks> filteredBanks = new ArrayList<>();
 
                 for (int i = 0; i < mResponse.mBanks.size(); i++){
 

@@ -1,11 +1,11 @@
-package com.example.hm.convertlab.api;
+package com.example.hm.convertlab.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.hm.convertlab.dao.BankContract;
-import com.example.hm.convertlab.dao.CurrenciesContract;
+import com.example.hm.convertlab.database.dao.BankContract;
+import com.example.hm.convertlab.database.dao.CurrenciesContract;
 
 /**
  * Created by hm on 10.02.2016.
@@ -35,8 +35,8 @@ public class BankDatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL(new BankContract().CREATE_BANKS_TABLE);
-        db.execSQL(new CurrenciesContract().CREATE_TABLE_CURRENCIES);
+        db.execSQL(BankContract.CREATE_BANKS_TABLE);
+        db.execSQL(CurrenciesContract.CREATE_TABLE_CURRENCIES);
 
     }
 

@@ -1,4 +1,4 @@
-package com.example.hm.convertlab.dao;
+package com.example.hm.convertlab.database.dao;
 
 /**
  * Created by hm on 15.02.2016.

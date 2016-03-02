@@ -1,15 +1,15 @@
-package com.example.hm.convertlab.dao;
+package com.example.hm.convertlab.database.dao;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.example.hm.convertlab.api.BankDatabase;
+import com.example.hm.convertlab.database.BankDatabase;
 import com.example.hm.convertlab.api.Modell.Banks;
 import com.example.hm.convertlab.api.Modell.Currencies;
 
-import static com.example.hm.convertlab.dao.CurrenciesContract.*;
+import static com.example.hm.convertlab.database.dao.CurrenciesContract.*;
 
 import java.util.ArrayList;
 import java.util.List;

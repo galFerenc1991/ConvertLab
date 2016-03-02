@@ -1,10 +1,11 @@
-package com.example.hm.convertlab.dao;
+package com.example.hm.convertlab.database.dao;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.example.hm.convertlab.api.BankDatabase;
+import com.example.hm.convertlab.MyNotification;
+import com.example.hm.convertlab.database.BankDatabase;
 import com.example.hm.convertlab.api.Modell.Banks;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,8 @@ public class BankDao extends BankContract {
     public void addAllBanks(List<Banks> mBanks){
         SQLiteDatabase db = BankDatabase.getInstance().getWritableDatabase();
         for (int i = 0; i < mBanks.size(); i++ ) {
-            Log.d("Betoltes", ":"+i);
+            MyNotification.startNotification(mBanks.size(),i);
+            Log.d("Loading", ":"+i);
             ContentValues cv = new ContentValues();
             cv.put(KEY_BANK_ID, mBanks.get(i).mBankID);
             cv.put(KEY_BANK_NAME, mBanks.get(i).mBankName);
@@ -33,12 +35,12 @@ public class BankDao extends BankContract {
 
             currenciesDao.addCurrencies(primary, mBanks.get(i));
         }
-
+        MyNotification.completeNotification();
         db.close();
     }
 
     public List<Banks> getBank(){
-        Log.d("kiveves", ":");
+        Log.d("Upload", ":");
 
         SQLiteDatabase db = BankDatabase.getInstance().getReadableDatabase();
         List<Banks> example = new ArrayList<>();

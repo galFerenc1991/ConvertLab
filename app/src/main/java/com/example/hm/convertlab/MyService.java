@@ -6,7 +6,7 @@ import android.util.Log;
 
 import com.example.hm.convertlab.api.Modell.BankResponse;
 import com.example.hm.convertlab.api.RestProvider;
-import com.example.hm.convertlab.dao.BankDao;
+import com.example.hm.convertlab.database.dao.BankDao;
 
 /**
  * Created by hm on 22.02.2016.

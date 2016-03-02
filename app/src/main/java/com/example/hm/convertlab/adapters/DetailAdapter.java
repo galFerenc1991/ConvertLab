@@ -1,4 +1,4 @@
-package com.example.hm.convertlab.api;
+package com.example.hm.convertlab.adapters;
 
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;

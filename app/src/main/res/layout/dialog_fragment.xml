@@ -19,7 +19,7 @@
             android:orientation="vertical"
             android:transitionGroup="true">
 
-            <com.example.hm.convertlab.fragments.CustomView
+            <com.example.hm.convertlab.custom_view.CustomView
                 android:id="@+id/customView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

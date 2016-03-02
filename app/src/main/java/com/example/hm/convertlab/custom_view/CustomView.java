@@ -1,4 +1,4 @@
-package com.example.hm.convertlab.fragments;
+package com.example.hm.convertlab.custom_view;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -59,7 +59,7 @@ public class CustomView extends View {
         MARGIN_LEFT = convertDpToPixel(20f, context);
         MARGIN_LEFT_CUR =convertDpToPixel(40f, context);
         MARGIN_TOP = convertDpToPixel(45f, context);
-        MARGIN_LEFT_CUR_NUM = convertDpToPixel(180f, context);
+        MARGIN_LEFT_CUR_NUM = convertDpToPixel(170f, context);
         DISTANCE_BETWEEN_ROWS = convertDpToPixel(28f, context);
         DISTANCE_BETWEEN_CUR = convertDpToPixel(60f, context);
         FIRS_LINE_CUR = convertDpToPixel(145f, context);

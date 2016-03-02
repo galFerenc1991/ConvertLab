@@ -9,7 +9,7 @@ import com.example.hm.convertlab.MyNetworkManager;
 import com.example.hm.convertlab.api.Modell.BankResponse;
 import com.example.hm.convertlab.api.Modell.Banks;
 import com.example.hm.convertlab.api.Modell.Currencies;
-import com.example.hm.convertlab.dao.BankDao;
+import com.example.hm.convertlab.database.dao.BankDao;
 
 import java.util.Iterator;
 import java.util.List;

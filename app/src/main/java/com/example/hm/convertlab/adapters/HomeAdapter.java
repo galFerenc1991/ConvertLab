@@ -1,4 +1,4 @@
-package com.example.hm.convertlab.api;
+package com.example.hm.convertlab.adapters;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.hm.convertlab.api.ItemBank;
 import com.example.hm.convertlab.api.Modell.Banks;
 import com.example.hm.convertlab.R;
 
