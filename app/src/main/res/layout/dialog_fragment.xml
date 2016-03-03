@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 custom:currencies_color="@color/currencies_color"
-                custom:currencies_size="30dp"
+                custom:currencies_size="25dp"
                 custom:bank_name_size="20dp"
                 custom:all_rows_size="17dp" />
 
@@ -36,6 +36,7 @@
         android:id="@+id/btnShare"
         android:text="SHARE"
         android:textColor="@color/color_floating_button"
+        android:background="@color/share_button_color"
         android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="70sp" />

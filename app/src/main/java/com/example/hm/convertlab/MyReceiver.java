@@ -12,15 +12,15 @@ import android.util.Log;
  * Created by hm on 22.02.2016.
  */
 public class MyReceiver extends BroadcastReceiver {
-    private static long mRefreshTime = 60000;
+    private static int mRefreshTimeMinute = 10;
+    private static final long mRefreshTimeOneMinute = 60000;
+    private static long mRefreshTime = mRefreshTimeOneMinute * mRefreshTimeMinute;
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d("Ricsimegmondta", "elindult");
         Intent myIntent = new Intent(context, MyService.class);
         PendingIntent pending1 = PendingIntent.getService(context, 0, myIntent,
                 PendingIntent.FLAG_NO_CREATE);
         if (pending1 != null) {
-            Log.d("Ricsimegmondta", "van intent");
         } else {
             PendingIntent pIntent = PendingIntent.getService(context, 0, myIntent,
                     PendingIntent.FLAG_UPDATE_CURRENT);

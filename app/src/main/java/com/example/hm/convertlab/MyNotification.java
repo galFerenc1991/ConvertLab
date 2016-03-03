@@ -28,7 +28,7 @@ public class MyNotification {
         mBuilder = new NotificationCompat.Builder(context);
         mBuilder.setContentTitle("Loading Date")
                 .setContentText("  " + percentage + " %")
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(android.R.drawable.btn_star)
                 .setProgress(_bankSize, id, false);
         Notification notification = mBuilder.build();
         notificationManager.notify(100, notification);

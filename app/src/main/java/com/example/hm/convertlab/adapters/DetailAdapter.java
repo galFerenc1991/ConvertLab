@@ -87,15 +87,15 @@ public class DetailAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder
 
     public void setChangeAsk(CurrenciesViewHolder _CVH,int _position){
         switch (mBank.mCurrencies.get(_position - 1).mChangeAsk){
-        case 2:///////UP////////
+        case 1:///////UP////////
             _CVH.mAsk.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.currencies_up_color));
             _CVH.mImageAsk.setImageResource(R.drawable.ic_green_arrow_up);
             break;
-        case 0:////////DOWN/////
+        case 2:////////DOWN/////
             _CVH.mAsk.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.currencies_down_color));
             _CVH.mImageAsk.setImageResource(R.drawable.ic_red_arrow_down);
             break;
-        case 1://///DEFAULT//////
+        case 0://///DEFAULT//////
             _CVH.mAsk.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.text_home));
             _CVH.mImageAsk.setImageResource(android.R.color.transparent);
             break;
@@ -104,15 +104,15 @@ public class DetailAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder
 
     public void setChangeBid(CurrenciesViewHolder _CVH,int _position){
         switch (mBank.mCurrencies.get(_position - 1).mChangeBid){
-        case 0:///////UP////////
+        case 1:///////UP////////
             _CVH.mBid.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.currencies_up_color));
             _CVH.mImageBid.setImageResource(R.drawable.ic_green_arrow_up);
             break;
-        case 1:////////DOWN/////
+        case 2:////////DOWN/////
             _CVH.mBid.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.currencies_down_color));
             _CVH.mImageBid.setImageResource(R.drawable.ic_red_arrow_down);
             break;
-        case 2://///DEFAULT//////
+        case 0://///DEFAULT//////
             _CVH.mBid.setTextColor(ContextCompat.getColor(headerItem.getContext(), R.color.text_home));
             _CVH.mImageBid.setImageResource(android.R.color.transparent);
             break;

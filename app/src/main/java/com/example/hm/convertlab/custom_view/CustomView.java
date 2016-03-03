@@ -43,7 +43,7 @@ public class CustomView extends View {
         setFocusable(true);
 
         MARGIN_LEFT = convertDpToPixel(50f, context);
-        MARGIN_LEFT_CUR =convertDpToPixel(100f, context);
+        MARGIN_LEFT_CUR =convertDpToPixel(80f, context);
         MARGIN_TOP = convertDpToPixel(100f, context);
         MARGIN_LEFT_CUR_NUM = convertDpToPixel(450f, context);
         DISTANCE_BETWEEN_ROWS = convertDpToPixel(70f, context);
@@ -59,7 +59,7 @@ public class CustomView extends View {
         MARGIN_LEFT = convertDpToPixel(20f, context);
         MARGIN_LEFT_CUR =convertDpToPixel(40f, context);
         MARGIN_TOP = convertDpToPixel(45f, context);
-        MARGIN_LEFT_CUR_NUM = convertDpToPixel(170f, context);
+        MARGIN_LEFT_CUR_NUM = convertDpToPixel(160f, context);
         DISTANCE_BETWEEN_ROWS = convertDpToPixel(28f, context);
         DISTANCE_BETWEEN_CUR = convertDpToPixel(60f, context);
         FIRS_LINE_CUR = convertDpToPixel(145f, context);
@@ -92,7 +92,7 @@ public class CustomView extends View {
                 paint.setAntiAlias(true);
                 paint.setColor(mCurrenciesColor);
                 paint.setTextSize(mCurrenciesSize);
-                paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+                //paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
                 break;
         }
         return paint;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#34454d</color>
     <color name="colorAccent">#FF4081</color>
     <color name="v">#afbec5</color>
     <color name="text_home">#050505</color>
@@ -11,6 +11,7 @@
     <color name="currencies_color">#6c1235</color>
     <color name="currencies_up_color">#015e67</color>#
     <color name="currencies_down_color">#860c4d</color>
+    <color name="share_button_color">#aebdc4</color>
 
 
 </resources>
